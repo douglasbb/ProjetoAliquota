@@ -1,4 +1,4 @@
-﻿unit UPrincipal;
+unit UPrincipal;
 
 interface
 
@@ -24,7 +24,7 @@ type
     cxgProduto: TcxGrid;
     dxLayoutItem1: TdxLayoutItem;
     dsListaProdutos: TDataSource;
-    btnImportarArquivoImposto: TcxButton;
+    cxButton1: TcxButton;
     libtnBuscarArquivoImportacao: TdxLayoutItem;
     dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
     dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel;
@@ -53,7 +53,7 @@ type
     sdExportarExcel: TSaveDialog;
     cxStyle2: TcxStyle;
     procedure FormShow(Sender: TObject);
-    procedure btnImportarArquivoImpostoClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ckbListaProdutosPropertiesChange(Sender: TObject);
     procedure cxCheckComboBox1PropertiesChange(Sender: TObject);
@@ -76,7 +76,7 @@ type
     function fGetValorImposto(AStateCheckbox: TcxCheckBoxState; AFieldNameImposto: string;
       AValorProduto: Double): Double;
   public
-
+//    function fValorFinalProduto(AValorProduto, AValorImpostos: Double): Double;
   end;
 
 var
@@ -97,18 +97,16 @@ end;
 
 procedure TPrincipal.cmbTipoImpostoPropertiesChange(Sender: TObject);
 begin
-  //Exibirá a opção de buscar arquivo somente se o tipo de imposto for selecionado, cada arquivo tem seu padrão
   libtnBuscarArquivoImportacao.Enabled:= TUtils.IIF<boolean>(cmbTipoImposto.Text = 'Selecione', False, True);
 end;
 
-procedure TPrincipal.btnImportarArquivoImpostoClick(Sender: TObject);
+procedure TPrincipal.cxButton1Click(Sender: TObject);
 begin
   pImportarArquivo;
 end;
 
 procedure TPrincipal.cxCheckComboBox1PropertiesChange(Sender: TObject);
 begin
-  //A cada produto selecionado, atualiza a lista de acordo com o a visão de imposto
   liListadeProdutos.Enabled:= TUtils.IIF<boolean>(ckbImpostos.Text = 'Selecione', False, True);
   pConfigurarVisaoGrid;
   dsProdutos.DataSet.Close;
@@ -164,11 +162,15 @@ begin
   pCarregarComboBoxProdutos;
 end;
 
+//function TPrincipal.fValorFinalProduto(AValorProduto, AValorImpostos: Double): Double;
+//begin
+//  Result:= AValorProduto - AValorImpostos;
+//end;
+
 procedure TPrincipal.pCalcularValorProduto(AValor: string);
 var
   Valor, ImpostoNacional, ImpostoEstadual, ImpostoMunicipal: Double;
 begin
-  //De acordo com os impostos selecionados, calcula o valor final do produto
   Valor:= StrToFloat(AValor);
   ImpostoNacional := fGetValorImposto(ckbImpostos.States[0], 'imposto_nacional', Valor);
   ImpostoEstadual := fGetValorImposto(ckbImpostos.States[1], 'imposto_estadual', Valor);
@@ -181,7 +183,6 @@ procedure TPrincipal.pCarregarComboBoxProdutos;
 var
   I: Integer;
 begin
-  //Carrega a lista de produtos préviamente cadastrada no sistema
   dsListaProdutos.DataSet.First;
   TcxCheckComboBoxProperties(ckbListaProdutos.Properties).Items.Clear;
   I:= 0;
@@ -204,7 +205,6 @@ end;
 
 procedure TPrincipal.pConfigurarVisaoGrid;
 begin
-  //De acordo com os impostos selecionados exibe ou não as colunas no grid
   cxgImpostoNacional.Visible      := TUtils.IIF<Boolean>(ckbImpostos.States[0] = cbsChecked, True, False);
   cxgImpostoEstadual.Visible      := TUtils.IIF<Boolean>(ckbImpostos.States[1] = cbsChecked, True, False);
   cxgridProdutosEstado.Visible    := TUtils.IIF<Boolean>(ckbImpostos.States[1] = cbsChecked, True, False);
@@ -218,8 +218,6 @@ var
   AFileName: string;
 begin
   inherited;
-  //Passa nome padrão do arquivo e exporta a lista dos dados para excel, após finalizar, exibe mensagem
-  // pedindo se o usuário deseja abrir
   sdExportarExcel.FileName := ANomeArquivo;
   if sdExportarExcel.Execute then
   begin
@@ -246,7 +244,6 @@ var
   NomeArquivo: string;
 begin
   try
-    //Busca o nome do arquivo e chama a função passando como parâmetro o nome do arquivo e qual o  tipo de imposto está sendo importado}
     NomeArquivo:= TArquivoExcel.BuscarArquivo;
     TCursor.IniciarProcessamento;
     TImportarArquivo.Importar(NomeArquivo, cmbTipoImposto.Text, FConexao);

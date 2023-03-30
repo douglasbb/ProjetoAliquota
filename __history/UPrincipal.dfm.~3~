@@ -24,6 +24,7 @@ object Principal: TPrincipal
     Height = 712
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1043
     object cxgProduto: TcxGrid
       Left = 23
       Top = 157
@@ -120,7 +121,7 @@ object Principal: TPrincipal
         GridView = cxgridProdutos
       end
     end
-    object btnImportarArquivoImposto: TcxButton
+    object cxButton1: TcxButton
       Left = 254
       Top = 31
       Width = 194
@@ -156,7 +157,7 @@ object Principal: TPrincipal
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnImportarArquivoImpostoClick
+      OnClick = cxButton1Click
     end
     object ckbListaProdutos: TcxCheckComboBox
       Left = 447
@@ -230,7 +231,7 @@ object Principal: TPrincipal
       CaptionOptions.Visible = False
       CaptionOptions.Layout = clTop
       LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-      Control = btnImportarArquivoImposto
+      Control = cxButton1
       ControlOptions.OriginalHeight = 25
       ControlOptions.OriginalWidth = 194
       ControlOptions.ShowBorder = False

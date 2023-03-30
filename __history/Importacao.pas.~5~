@@ -27,7 +27,6 @@ type
   end;
 
   TArquivoExcel = class
-    //Classe para as rotinas de abertura de arquivo excel
     class function fCreateObject(): IDispatch;
     class procedure CarregarArquivo(AXLSAplicacao : OLEVariant; ACaminho: string);
     class function BuscarArquivo: string;
@@ -35,7 +34,6 @@ type
   end;
 
   TColunas = class
-   //Classe com as referências para faciliar o entendimento de quais colunas estão sendo chamadas
     const
       A_ = 1;
       B_ = 2;
@@ -109,10 +107,10 @@ const
   ValorVazioNumerico = '0';
 begin
   try
-    //Importação do arquivo excel
     DadosArquivoImpostos := TDadosArquivoImpostos.Create;
     TImportarArquivo.ExcluirDadosImposto(ATipoImposto, AFDConexao);
     Linha := LinhaInicioDadosImportacao;
+//    TCursor.IniciarProcessamento;
     XLSAplicacao:= TArquivoExcel.fCreateObject;
     try
       XLSAplicacao.DisplayAlerts := False;
@@ -124,7 +122,6 @@ begin
     DadoCelula  := TArquivoExcel.GetValorCelula(XLSAplicacao, Linha, TColunas.A_, ValorVazioString);
     while DadoCelula <> '' do
     begin
-      //De acordo com o tipo de imposto, chama a procedure para salvar cada arquivo de imposto
       DadosArquivoImpostos.CodigoNMC        := TArquivoExcel.GetValorCelula(XLSAplicacao, Linha, TColunas.A_, ValorVazioString);
       DadosArquivoImpostos.DescricaoProduto := TArquivoExcel.GetValorCelula(XLSAplicacao, Linha, TColunas.B_, ValorVazioString);
       if ATipoImposto = 'Nacional' then
@@ -152,6 +149,7 @@ begin
     end;
 
   finally
+//    TCursor.FinalizarProcessamento;
     WinExec('taskkill /F /IM excel.exe', SW_HIDE);
     FreeAndNil(DadosArquivoImpostos);
   end;
