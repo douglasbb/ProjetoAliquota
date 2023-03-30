@@ -1,0 +1,28 @@
+unit UUtils;
+
+interface
+
+uses
+  System.SysUtils, System.Variants, UConexao, FireDAC.Comp.Client,
+  System.Win.ComObj, Vcl.Dialogs, Vcl.Forms, Vcl.Controls, Winapi.Windows ;
+
+type
+
+  TCursor = class
+    class procedure IniciarProcessamento;
+    class procedure FinalizarProcessamento;
+  end;
+
+implementation
+
+{ TCursor }
+
+class procedure TCursor.FinalizarProcessamento;
+begin
+  Screen.Cursor := crDefault;
+end;
+
+class procedure TCursor.IniciarProcessamento;
+begin
+  Screen.Cursor := crHourglass;
+end;

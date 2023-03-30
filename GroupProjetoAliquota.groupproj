@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{86497829-3824-4946-BAE9-D7D0FA21D624}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjetoAliquota.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TesteProjeto\ProjetoAliquotaTests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjetoAliquota">
+        <MSBuild Projects="ProjetoAliquota.dproj"/>
+    </Target>
+    <Target Name="ProjetoAliquota:Clean">
+        <MSBuild Projects="ProjetoAliquota.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjetoAliquota:Make">
+        <MSBuild Projects="ProjetoAliquota.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjetoAliquotaTests">
+        <MSBuild Projects="TesteProjeto\ProjetoAliquotaTests.dproj"/>
+    </Target>
+    <Target Name="ProjetoAliquotaTests:Clean">
+        <MSBuild Projects="TesteProjeto\ProjetoAliquotaTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjetoAliquotaTests:Make">
+        <MSBuild Projects="TesteProjeto\ProjetoAliquotaTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjetoAliquota;ProjetoAliquotaTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjetoAliquota:Clean;ProjetoAliquotaTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjetoAliquota:Make;ProjetoAliquotaTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

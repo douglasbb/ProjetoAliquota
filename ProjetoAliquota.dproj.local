@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/04/19 17:15:16.000.734,=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/04/19 17:16:07.000.265,=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/04/19 19:36:45.000.524,=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/04/20 12:32:51.000.179,=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/26 17:33:18.000.984,=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/26 17:34:31.000.028,C:\Douglas\Delphi\ProjetoAliquota\UPrincipal.dfm=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/03/26 17:34:31.000.028,C:\Douglas\Delphi\ProjetoAliquota\UPrincipal.pas=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/26 17:34:39.000.310,C:\Douglas\Delphi\ProjetoAliquota\Project1.dproj=C:\Users\dougl\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/03/26 17:34:59.000.206,C:\Douglas\Delphi\ProjetoAliquota\ProjetoAliquota.dproj=C:\Douglas\Delphi\ProjetoAliquota\Project1.dproj</Transaction>
+    <Transaction>2023/03/26 18:09:12.000.023,=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+    <Transaction>2023/03/26 18:09:39.000.311,C:\Douglas\Delphi\ProjetoAliquota\UConexao.dfm=C:\Douglas\Delphi\ProjetoAliquota\Unit1.dfm</Transaction>
+    <Transaction>2023/03/26 18:09:39.000.311,C:\Douglas\Delphi\ProjetoAliquota\UConexao.pas=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+    <Transaction>2023/03/27 22:56:27.000.351,=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+    <Transaction>2023/03/27 22:57:08.000.912,C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas=C:\Douglas\Delphi\ProjetoAliquota\Importacao.pas</Transaction>
+    <Transaction>2023/03/29 23:36:02.269,=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+    <Transaction>2023/03/29 23:36:28.820,C:\Douglas\Delphi\ProjetoAliquota\Utils.pas=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+    <Transaction>2023/03/29 23:36:39.952,C:\Douglas\Delphi\ProjetoAliquota\Utils.pas=</Transaction>
+    <Transaction>2023/03/29 23:37:00.175,=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+    <Transaction>2023/03/29 23:37:08.057,C:\Douglas\Delphi\ProjetoAliquota\UUtils.pas=C:\Douglas\Delphi\ProjetoAliquota\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
